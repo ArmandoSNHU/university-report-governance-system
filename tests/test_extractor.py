@@ -30,7 +30,10 @@ class ExtractorTests(unittest.TestCase):
 
             self.assertEqual(1, len(paths))
             self.assertTrue(paths[0].exists())
-            self.assertIn("-- Extracted via ARGOS-bridge", paths[0].read_text(encoding="utf-8"))
+            self.assertIn(
+                "-- Extracted via University Report Governance System",
+                paths[0].read_text(encoding="utf-8"),
+            )
 
 
 if __name__ == "__main__":

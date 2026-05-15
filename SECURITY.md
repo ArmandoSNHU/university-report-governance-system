@@ -1,6 +1,6 @@
 # Security Policy
 
-ARGOS-bridge uses fictional sample data and does not connect to real systems.
+University Report Governance System uses fictional sample data and does not connect to real systems.
 
 ## Reporting Security Issues
 

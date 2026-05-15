@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for improving ARGOS-bridge. This project is intentionally small, standard-library-only, and focused on governed reporting workflows.
+Thank you for improving University Report Governance System. This project is intentionally small, standard-library-only, and focused on governed reporting workflows.
 
 ## Local Checks
 

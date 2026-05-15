@@ -1,10 +1,10 @@
-# ARGOS-bridge
+# University Report Governance System
 
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
-[![Tests](https://github.com/ArmandoSNHU/ARGOS-bridge/actions/workflows/ci.yml/badge.svg)](https://github.com/ArmandoSNHU/ARGOS-bridge/actions/workflows/ci.yml)
+[![Tests](https://github.com/ArmandoSNHU/university-report-governance-system/actions/workflows/ci.yml/badge.svg)](https://github.com/ArmandoSNHU/university-report-governance-system/actions/workflows/ci.yml)
 [![Dependencies](https://img.shields.io/badge/dependencies-standard%20library-green)](#requirements)
 
-ARGOS-bridge is a Python command-line project for Banner-style institutional reporting and Argos-style report governance. It demonstrates how report SQL can be extracted, documented, inventoried, and validated before it is treated as a governed reporting asset.
+University Report Governance System is a Python command-line project for Banner-style institutional reporting and Argos-style report governance. It demonstrates how report SQL can be extracted, documented, inventoried, and validated before it is treated as a governed reporting asset.
 
 The project uses fictional `SC_ERP` sample objects. It does not connect to a real Banner, Argos, Ellucian, Evisions, or ERP environment.
 
@@ -14,6 +14,7 @@ The project uses fictional `SC_ERP` sample objects. It does not connect to a rea
 - [Features](#features)
 - [Quick Start](#quick-start)
 - [CLI Reference](#cli-reference)
+- [Academic Sample Dataset](#academic-sample-dataset)
 - [Report Asset Model](#report-asset-model)
 - [Validation Rules](#validation-rules)
 - [Project Structure](#project-structure)
@@ -29,12 +30,12 @@ Institutional reporting often depends on three pieces working together:
 2. SQL report logic that answers operational business questions.
 3. A governed reporting layer that documents audience, parameters, sensitivity, and output expectations.
 
-ARGOS-bridge models that workflow locally. SQL files represent report logic, JSON files represent Argos-style report metadata, and the CLI provides repeatable commands for inventory and validation.
+University Report Governance System models that workflow locally. SQL files represent report logic, JSON files represent Argos-style report metadata, and the CLI provides repeatable commands for inventory and validation.
 
 ## Features
 
 - Extracts SQL statements from text-based report exports.
-- Maintains governed sample reports for Student, Finance, Human Resources, and Financial Aid.
+- Maintains governed sample reports for Student, Finance, Human Resources, Financial Aid, and Academic Affairs.
 - Tracks report metadata including audience, parameters, output type, sensitivity, and business question.
 - Validates SQL for risky or weak reporting patterns.
 - Provides a report inventory summary by functional area and sensitivity.
@@ -46,21 +47,21 @@ ARGOS-bridge models that workflow locally. SQL files represent report logic, JSO
 Clone the repository and run the demo:
 
 ```powershell
-git clone https://github.com/ArmandoSNHU/ARGOS-bridge.git
-cd ARGOS-bridge
+git clone https://github.com/ArmandoSNHU/university-report-governance-system.git
+cd university-report-governance-system
 python -m argos_bridge demo
 ```
 
 Expected result:
 
 ```text
-ARGOS-bridge demo
-=================
-Report inventory: 4 report(s)
-Parameterized reports: 3
+University Report Governance System demo
+========================================
+Report inventory: 5 report(s)
+Parameterized reports: 4
 
-Checked 10 SQL file(s).
-All SQL files pass ARGOS-bridge standards.
+Checked 12 SQL file(s).
+All SQL files pass University Report Governance System standards.
 ```
 
 ## Requirements
@@ -112,6 +113,18 @@ python -m argos_bridge extract sample_export.txt
 
 Generated files are written to `sql_queries/`. Review generated files before committing them.
 
+## Academic Sample Dataset
+
+The repository includes a fictional academic sample dataset under `data/academic_sample/`:
+
+- 30 made-up students
+- 10 made-up professors
+- 10 courses
+- 120 passing grade records
+- Student GPAs calculated from course grades
+
+The dean-facing summary is available in `docs/deans_report.md`. It includes GitHub-rendered Mermaid charts for GPA by major and passing grade distribution.
+
 ## Report Asset Model
 
 Each governed report has two parts:
@@ -143,6 +156,7 @@ Current sample report areas:
 | Finance | Outstanding Student Balances |
 | Human Resources | Active Positions by Department |
 | Financial Aid | Financial Aid Missing Requirements |
+| Academic Affairs | Dean's Academic Performance Summary |
 
 ## Validation Rules
 
@@ -158,9 +172,10 @@ Errors fail validation. Warnings are reported so report authors can clean up wea
 ## Project Structure
 
 ```text
-ARGOS-bridge/
+university-report-governance-system/
 ├── argos_bridge/       # CLI package
 ├── docs/               # Architecture notes
+├── data/               # Fictional academic sample data
 ├── reports/            # Argos-style report metadata
 ├── scripts/            # Compatibility wrappers and sample-data script
 ├── sql_queries/        # Governed SQL report examples
@@ -195,4 +210,4 @@ python -m argos_bridge demo
 
 ## Disclaimer
 
-ARGOS-bridge is a learning and demonstration project. All schema names, report names, and data examples are fictional. This repository does not include proprietary Argos exports, Banner configuration, production data, credentials, or integrations with real institutional systems.
+University Report Governance System is a learning and demonstration project. All schema names, report names, and data examples are fictional. This repository does not include proprietary Argos exports, Banner configuration, production data, credentials, or integrations with real institutional systems.

@@ -1,4 +1,4 @@
-# ARGOS-bridge Architecture
+# University Report Governance System Architecture
 The goal of this program is to:
 1. Parse `.argosexport` files.
 2. Extract the embedded SQL queries.

@@ -1,12 +1,12 @@
 [project]
-name = "argos-bridge"
+name = "university-report-governance-system"
 version = "0.2.0"
 description = "CLI demo for Banner-style SQL reporting and Argos-style report governance."
 requires-python = ">=3.10"
 dependencies = []
 
 [project.scripts]
-argos-bridge = "argos_bridge.cli:main"
+university-report-governance-system = "argos_bridge.cli:main"
 
 [tool.setuptools]
 packages = ["argos_bridge"]

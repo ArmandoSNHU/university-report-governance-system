@@ -1,0 +1,11 @@
+course_id,course_code,course_title,credit_hours,professor_id
+301,CSCI-1301,Introduction to Programming,3,501
+302,BUSI-2301,Principles of Management,3,502
+303,BIOL-1406,General Biology I,4,503
+304,MATH-1314,College Algebra,3,504
+305,NURS-1201,Foundations of Nursing,2,505
+306,CRIJ-1301,Introduction to Criminal Justice,3,506
+307,ENGL-1301,Composition I,3,507
+308,HIST-1302,United States History II,3,508
+309,PSYC-2301,General Psychology,3,509
+310,ACCT-2301,Financial Accounting,3,510

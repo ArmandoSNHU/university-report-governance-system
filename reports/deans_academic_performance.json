@@ -1,0 +1,11 @@
+{
+  "report_id": "AA-001",
+  "name": "Dean's Academic Performance Summary",
+  "functional_area": "Academic Affairs",
+  "sql_file": "sql_queries/deans_academic_performance.sql",
+  "sensitivity": "FERPA - aggregated",
+  "parameters": ["term_code"],
+  "output_type": "dean summary report",
+  "audience": "Academic Affairs leadership",
+  "business_question": "What is the average passing GPA by major for a selected term?"
+}

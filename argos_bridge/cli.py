@@ -58,8 +58,8 @@ def main(argv: list[str] | None = None) -> int:
         return 0 if assets else 1
 
     if args.command == "demo":
-        print("ARGOS-bridge demo")
-        print("=" * 17)
+        print("University Report Governance System demo")
+        print("=" * 40)
         assets = load_report_assets("reports")
         print(format_inventory(assets))
         print("")

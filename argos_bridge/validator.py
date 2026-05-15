@@ -85,7 +85,7 @@ def format_validation_report(report: ValidationReport) -> str:
     lines = [f"Checked {report.checked_files} SQL file(s)."]
 
     if not report.issues:
-        lines.append("All SQL files pass ARGOS-bridge standards.")
+        lines.append("All SQL files pass University Report Governance System standards.")
         return "\n".join(lines)
 
     for issue in report.issues:

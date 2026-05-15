@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to ARGOS-bridge will be documented in this file.
+All notable changes to University Report Governance System will be documented in this file.
 
 ## 0.2.0
 
@@ -8,6 +8,7 @@ All notable changes to ARGOS-bridge will be documented in this file.
 - Added report inventory support.
 - Added SQL validation reports.
 - Added governed sample reports for Student, Finance, HR, and Financial Aid.
+- Added fictional academic sample data and dean-level reporting examples.
 - Added Argos-style report metadata.
 - Added unit tests.
 - Added GitHub Actions CI.

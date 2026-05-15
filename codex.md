@@ -1,8 +1,8 @@
-# ARGOS-bridge Codex Guide
+# University Report Governance System Codex Guide
 
 ## Project Purpose
 
-ARGOS-bridge is a standard-library Python project for demonstrating Banner-style institutional reporting and Argos-style report governance. Its workflow is:
+University Report Governance System is a standard-library Python project for demonstrating Banner-style institutional reporting and Argos-style report governance. Its workflow is:
 
 1. Parse text-based reporting exports.
 2. Extract embedded SQL statements.

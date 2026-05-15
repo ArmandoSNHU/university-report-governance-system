@@ -31,7 +31,7 @@ def save_queries(
     for index, query in enumerate(queries):
         path = out_dir / f"extracted_query_{stamp}_{index}.sql"
         path.write_text(
-            "-- Extracted via ARGOS-bridge\n" + query.strip() + "\n",
+            "-- Extracted via University Report Governance System\n" + query.strip() + "\n",
             encoding="utf-8",
         )
         saved_paths.append(path)

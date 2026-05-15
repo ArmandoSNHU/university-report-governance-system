@@ -1,4 +1,4 @@
--- PROJECT: ARGOS-bridge (Universal Edition)
+-- PROJECT: University Report Governance System
 -- SCHEMA: SC_ERP (Sample College ERP)
 
 /* USE CASE: Enrollment Reporting

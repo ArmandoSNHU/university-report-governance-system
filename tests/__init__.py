@@ -1,1 +1,1 @@
-"""ARGOS-bridge tests."""
+"""University Report Governance System tests."""

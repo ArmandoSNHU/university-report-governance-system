@@ -1,4 +1,4 @@
-# ARGOS-bridge Architecture
+# University Report Governance System Architecture
 
 ```mermaid
 flowchart LR
@@ -10,7 +10,7 @@ flowchart LR
     Validate --> Demo
 ```
 
-ARGOS-bridge is intentionally small. The package has three main responsibilities:
+University Report Governance System is intentionally small. The package has three main responsibilities:
 
 - `extractor` reads text exports and saves SQL statements.
 - `validator` checks report SQL for risky or weak patterns.
