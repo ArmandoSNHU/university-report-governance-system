@@ -10,6 +10,8 @@ All notable changes to University Report Governance System will be documented in
 - Added governed sample reports for Student, Finance, HR, and Financial Aid.
 - Added fictional academic sample data and dean-level reporting examples.
 - Added Argos-style report metadata.
+- Added generated report catalog support.
+- Added metadata consistency validation.
 - Added unit tests.
 - Added GitHub Actions CI.
 - Expanded project documentation.

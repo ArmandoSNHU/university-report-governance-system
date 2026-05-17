@@ -14,6 +14,8 @@ class ReportAsset:
     sensitivity: str
     parameters: list[str]
     business_question: str
+    output_type: str
+    audience: str
 
 
 def load_report_assets(metadata_dir: str | Path = "reports") -> list[ReportAsset]:
@@ -33,9 +35,43 @@ def load_report_assets(metadata_dir: str | Path = "reports") -> list[ReportAsset
                 sensitivity=data["sensitivity"],
                 parameters=list(data.get("parameters", [])),
                 business_question=data["business_question"],
+                output_type=data["output_type"],
+                audience=data["audience"],
             )
         )
     return assets
+
+
+def validate_report_assets(
+    assets: list[ReportAsset],
+    project_root: str | Path = ".",
+) -> list[str]:
+    root = Path(project_root)
+    issues: list[str] = []
+    seen_ids: set[str] = set()
+
+    for asset in assets:
+        if asset.report_id in seen_ids:
+            issues.append(f"Duplicate report_id found: {asset.report_id}")
+        seen_ids.add(asset.report_id)
+
+        sql_path = root / asset.sql_file
+        if not sql_path.exists():
+            issues.append(f"{asset.report_id} references missing SQL file: {asset.sql_file}")
+
+        for field_name in (
+            "name",
+            "functional_area",
+            "sql_file",
+            "sensitivity",
+            "business_question",
+            "output_type",
+            "audience",
+        ):
+            if not getattr(asset, field_name):
+                issues.append(f"{asset.report_id} has empty metadata field: {field_name}")
+
+    return issues
 
 
 def summarize_assets(assets: list[ReportAsset]) -> dict[str, object]:
@@ -82,3 +118,49 @@ def format_inventory(assets: list[ReportAsset]) -> str:
         )
 
     return "\n".join(lines)
+
+
+def render_markdown_catalog(assets: list[ReportAsset]) -> str:
+    summary = summarize_assets(assets)
+    lines = [
+        "# Report Catalog",
+        "",
+        "This catalog is generated from the JSON metadata files in `reports/`.",
+        "",
+        "## Summary",
+        "",
+        f"- Total reports: {summary['total_reports']}",
+        f"- Parameterized reports: {summary['parameterized_reports']}",
+        "",
+        "## Reports",
+        "",
+        "| Report ID | Name | Area | Audience | Sensitivity | Parameters | SQL File |",
+        "| --- | --- | --- | --- | --- | --- | --- |",
+    ]
+
+    for asset in assets:
+        params = ", ".join(asset.parameters) if asset.parameters else "none"
+        lines.append(
+            "| "
+            + " | ".join(
+                [
+                    asset.report_id,
+                    asset.name,
+                    asset.functional_area,
+                    asset.audience,
+                    asset.sensitivity,
+                    params,
+                    f"`{asset.sql_file}`",
+                ]
+            )
+            + " |"
+        )
+
+    lines.extend(["", "## Business Questions", ""])
+    for asset in assets:
+        lines.append(f"### {asset.report_id}: {asset.name}")
+        lines.append("")
+        lines.append(asset.business_question)
+        lines.append("")
+
+    return "\n".join(lines).rstrip() + "\n"

@@ -32,6 +32,7 @@ Run from the repository root:
 python -m argos_bridge demo
 python -m argos_bridge inventory
 python -m argos_bridge validate sql_queries
+python -m argos_bridge catalog
 python -m argos_bridge extract sample_export.txt
 python -m unittest discover
 ```
@@ -55,6 +56,7 @@ Use this baseline before handing off changes:
 python -m unittest discover
 python -m argos_bridge inventory
 python -m argos_bridge validate sql_queries
+python -m argos_bridge catalog
 python -m argos_bridge demo
 ```
 

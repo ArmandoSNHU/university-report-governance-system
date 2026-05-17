@@ -24,5 +24,8 @@ jobs:
       - name: Validate SQL reports
         run: python -m argos_bridge validate sql_queries
 
+      - name: Generate report catalog
+        run: python -m argos_bridge catalog
+
       - name: Run project demo
         run: python -m argos_bridge demo

@@ -95,6 +95,14 @@ Summarizes report metadata from `reports/`:
 python -m argos_bridge inventory
 ```
 
+### Catalog
+
+Generates `docs/report_catalog.md` from report metadata:
+
+```powershell
+python -m argos_bridge catalog
+```
+
 ### Validate
 
 Validates SQL files in `sql_queries/`:
@@ -124,6 +132,8 @@ The repository includes a fictional academic sample dataset under `data/academic
 - Student GPAs calculated from course grades
 
 The dean-facing summary is available in `docs/deans_report.md`. It includes GitHub-rendered Mermaid charts for GPA by major and passing grade distribution.
+
+The governed report catalog is available in `docs/report_catalog.md`.
 
 ## Report Asset Model
 
@@ -197,6 +207,7 @@ Recommended local verification before committing:
 ```powershell
 python -m unittest discover
 python -m argos_bridge validate sql_queries
+python -m argos_bridge catalog
 python -m argos_bridge demo
 ```
 
